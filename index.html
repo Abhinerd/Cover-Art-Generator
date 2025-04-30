@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audio Cover Art Generator</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <button id="themeToggle" title="Toggle Theme">🌙</button>
+
+  <h1>Audio Cover Art Generator</h1>
+  <input type="file" id="audioUpload" accept=".wav,.mp3,.ogg,.opus" />
+  <input type="text" id="albumName" placeholder="Album Name (optional)" />
+
+  <div class="options">
+    <label>Color Mode:</label>
+    <select id="colorMode">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+
+  <button id="generateBtn">Generate Cover</button>
+  <div id="status"></div>
+  <canvas id="canvas" width="2000" height="2000"></canvas>
+  <a id="downloadBtn" style="display:none;" download="cover.png">Download Cover</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
