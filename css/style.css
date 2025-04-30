@@ -1,21 +1,37 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: center;
-  transition: background 0.3s, color 0.3s;
-  box-sizing: border-box;
+:root {
+  --primary: #4361ee;
+  --primary-hover: #3a56d4;
+  --success: #4cc9f0;
+  --success-hover: #2bb4e0;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --bg-light: #f8f9fa;
+  --bg-dark: #121212;
+  --card-light: #ffffff;
+  --card-dark: #1e1e1e;
+  --border-light: #e9ecef;
+  --border-dark: #333333;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-body.light {
-  background: #f8f9fa;
-  color: #333;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+  box-sizing: border-box;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 body.dark {
-  background: #121212;
-  color: #e0e0e0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 #themeToggle {
@@ -24,152 +40,288 @@ body.dark {
   right: 20px;
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
-  transition: color 0.3s;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
+#themeToggle svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Light theme icon colors */
 body.light #themeToggle {
-  color: #333;
+  background: rgba(0, 0, 0, 0.05);
 }
 
+body.light #themeToggle .moon-icon {
+  display: block;
+  fill: #333;
+}
+
+body.light #themeToggle .sun-icon {
+  display: none;
+}
+
+/* Dark theme icon colors */
 body.dark #themeToggle {
-  color: #f1f1f1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark #themeToggle .moon-icon {
+  display: none;
+}
+
+body.dark #themeToggle .sun-icon {
+  display: block;
+  fill: #f1f1f1;
+}
+
+/* Hover effects */
+#themeToggle:hover {
+  transform: scale(1.1);
+}
+
+body.light #themeToggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.dark #themeToggle:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: inherit;
+  font-size: 2.2em;
+  margin-bottom: 25px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
 }
 
-input[type="file"],
-input[type="text"],
-select {
-  width: 100%;
-  padding: 10px 12px;
-  margin: 10px 0;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+/* Modern file input */
+.file-upload-container {
+  position: relative;
+  margin: 20px 0;
 }
 
-input[type="file"]:hover,
-input[type="text"]:hover,
-select:hover {
-  border-color: #007BFF;
+.file-upload-label {
+  display: block;
+  padding: 18px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--card-light);
 }
 
-body.dark input,
-body.dark select {
-  background-color: #1e1e1e;
-  color: #f1f1f1;
-  border: 1px solid #555;
+body.dark .file-upload-label {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
 }
 
-.options {
+.file-upload-label:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.file-upload-label span {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.file-upload-label small {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+body.dark .file-upload-label small {
+  color: #aaa;
+}
+
+#audioUpload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Modern text input */
+.input-group {
   margin: 20px 0;
   text-align: left;
 }
 
-.options label {
-  font-weight: 600;
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+body.dark .input-group label {
+  color: var(--text-light);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  transition: var(--transition);
+  background-color: var(--card-light);
+  color: var(--text-dark);
+}
+
+body.dark input[type="text"],
+body.dark select {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+  color: var(--text-light);
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+/* Buttons */
+.button-group {
+  margin: 30px 0;
 }
 
 button {
-  background-color: #007BFF;
+  background-color: var(--primary);
   color: white;
-  padding: 12px 20px;
+  padding: 16px 32px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 1em;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-body.dark button {
-  background-color: #1e88e5;
-}
-
-body.dark button:hover {
-  background-color: #1565c0;
-}
-
-canvas {
-  display: block;
-  margin-top: 25px;
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+button:active {
+  transform: translateY(0);
 }
 
 #downloadBtn {
-  display: inline-block;
-  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
   text-decoration: none;
   color: white;
-  background-color: #28a745;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  background-color: var(--primary);
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
 }
 
 #downloadBtn:hover {
-  background-color: #1e7e34;
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-body.dark #downloadBtn {
-  background-color: #a5d8ff; /* Pastel blue */
+#downloadBtn::before {
+  content: "↓";
+  font-size: 1.2em;
 }
 
-body.dark #downloadBtn:hover {
-  background-color: #79b7ff; /* Lighter pastel blue */
+/* Canvas */
+canvas {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
 }
 
+body.dark canvas {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#status {
+  margin: 20px auto;
+  width: 100%;
+  height: 6px;
+  background-color: rgba(67, 97, 238, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  display: none;
+}
+
+#status-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+body.dark #status {
+  background-color: rgba(67, 97, 238, 0.2);
+}
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   body {
-    margin: 20px 10px;
-    padding: 15px;
+    margin: 20px;
+    padding: 20px;
   }
 
   h1 {
     font-size: 1.8em;
   }
-
-  input[type="file"],
-  input[type="text"],
-  select,
-  button {
-    font-size: 1em;
-  }
-
-  #themeToggle {
-    font-size: 20px;
-  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+  body {
+    margin: 15px;
+    padding: 15px;
+  }
+
   h1 {
     font-size: 1.6em;
   }
 
-  input[type="file"],
-  input[type="text"],
-  select,
-  button {
-    font-size: 0.9em;
-  }
-
-  #themeToggle {
-    font-size: 18px;
+  button,
+  #downloadBtn {
+    padding: 14px 24px;
   }
 }
