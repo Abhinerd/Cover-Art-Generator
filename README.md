@@ -1,4 +1,4 @@
-# 🎨 Audio Cover Art Generator
+# Audio Cover Art Generator
 
 A lightweight web app that generates stylized radial cover art from audio files. Upload your music, customize the theme, and download high-resolution artwork — all directly in the browser.
 
@@ -6,23 +6,23 @@ A lightweight web app that generates stylized radial cover art from audio files.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🎧 Upload `.mp3`, `.wav`, `.ogg`, or `.opus` files
-- 🌗 Toggle between light and dark themes
-- 🖋️ Add a custom album name to the cover
-- 🖼️ Generate unique radial waveform art
-- 💾 Download as high-resolution `.png`
-
----
-
-## 🖥️ Live Demo
-
-👉 [View on GitHub Pages](https://abhinerd.github.io/Cover-Art-Generator/)
+- Upload `.mp3`, `.wav`, `.ogg`, or `.opus` files
+- Toggle between light and dark themes
+- Add a custom album name to the cover
+- Generate unique radial waveform art
+- Download as high-resolution `.png`
 
 ---
 
-## 📂 Project Structure
+## Live Demo
+
+- [View on GitHub Pages](https://abhinerd.github.io/Cover-Art-Generator/)
+
+---
+
+## Project Structure
 
 ```
 audio-cover-art-generator/
@@ -38,7 +38,7 @@ audio-cover-art-generator/
 ```
 ---
 
-## ⚙️ How to Run Locally
+## How to Run Locally
 
 1. Clone the repository:
 
@@ -52,7 +52,7 @@ audio-cover-art-generator/
 
 ---
 
-## 📦 Deploying to GitHub Pages
+## Deploying to GitHub Pages
 
 1. Push your project to GitHub.
 2. Go to `Settings > Pages` in your repository.
@@ -65,7 +65,7 @@ audio-cover-art-generator/
 
 ---
 
-## 🛠 Built With
+## Built With
 
 - HTML5 + CSS3
 - Vanilla JavaScript
