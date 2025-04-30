@@ -60,7 +60,7 @@ audio-cover-art-generator/
 4. Save and wait a few moments for your site to go live at:
 
    ```
-   https://abhinerd.github.io/audio-cover-art-generator/
+   https://<your_username>.github.io/audio-cover-art-generator/
    ```
 
 ---
