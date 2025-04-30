@@ -120,7 +120,7 @@ function renderRadialWaveform(audioBuffer, albumName, colorMode) {
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Draw clean central circle (smaller than before)
+  // Draw clean central circle
   ctx.beginPath();
   ctx.arc(canvas.width/2, canvas.height/2, canvas.width*0.25, 0, Math.PI*2);
   ctx.fillStyle = colorMode === 'light' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)';
@@ -139,9 +139,9 @@ function renderRadialWaveform(audioBuffer, albumName, colorMode) {
     maxAmplitude = Math.max(maxAmplitude, Math.abs(data[i]));
   }
 
-  // Draw thicker waveform bars (all outward)
+  // Draw waveform bars (all outward)
   ctx.strokeStyle = colorMode === 'light' ? 'rgba(0,0,0,0.8)' : 'rgba(255,255,255,0.8)';
-  ctx.lineWidth = 5;  // Thicker bars (was 3)
+  ctx.lineWidth = 5;
   const barWidth = (2 * Math.PI) / 200;
   
   for (let i = 0; i < 200; i++) {
@@ -163,12 +163,12 @@ function renderRadialWaveform(audioBuffer, albumName, colorMode) {
     ctx.stroke();
   }
 
-  // Add album name (with more space)
+  // Add album name
   if (albumName) {
     ctx.fillStyle = colorMode === 'light' ? '#111' : '#fff';
     ctx.font = 'bold 70px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(albumName.toUpperCase(), centerX, canvas.height - 50); // Moved up
+    ctx.fillText(albumName.toUpperCase(), centerX, canvas.height - 50);
   }
 
   // Enable download
