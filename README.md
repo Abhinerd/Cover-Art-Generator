@@ -24,6 +24,7 @@ A lightweight web app that generates stylized radial cover art from audio files.
 
 ## 📂 Project Structure
 
+```
 audio-cover-art-generator/
 ├── index.html              # Main HTML file
 ├── css/
@@ -34,7 +35,7 @@ audio-cover-art-generator/
 │   └── example-cover.png   # Example output cover image
 ├── README.md
 └── .gitignore
-
+```
 ---
 
 ## ⚙️ How to Run Locally
