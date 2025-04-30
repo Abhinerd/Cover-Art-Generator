@@ -179,4 +179,3 @@ function renderRadialWaveform(audioBuffer, albumName, colorMode) {
   downloadBtn.href = canvas.toDataURL('image/png');
   downloadBtn.style.display = 'block';
 }
-
