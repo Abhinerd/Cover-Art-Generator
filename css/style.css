@@ -180,6 +180,7 @@ body.dark .input-group label {
 }
 
 input[type="text"],
+input[type="file"],
 select {
   width: 100%;
   padding: 15px;
@@ -189,9 +190,11 @@ select {
   transition: var(--transition);
   background-color: var(--card-light);
   color: var(--text-dark);
+  box-sizing: border-box;
 }
 
 body.dark input[type="text"],
+body.dark input[type="file"],
 body.dark select {
   background-color: var(--card-dark);
   border-color: var(--border-dark);
