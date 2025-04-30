@@ -18,7 +18,7 @@ A lightweight web app that generates stylized radial cover art from audio files.
 
 ## 🖥️ Live Demo
 
-👉 [View on GitHub Pages](https://abhinerd.github.io/audio-cover-art-generator/)
+👉 [View on GitHub Pages](https://abhinerd.github.io/Cover-Art-Generator/)
 
 ---
 
